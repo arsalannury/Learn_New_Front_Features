@@ -1,7 +1,9 @@
 function App() {
   return (
     <>
-      <p className="text-center p-5 hello-world">Hello World !</p>
+      <div className="@container p-5">
+        <p className="text-center hello-world">Hello World !</p>
+      </div>
     </>
   );
 }
