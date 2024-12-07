@@ -11,8 +11,8 @@
     color: var(--red-primary);
 }
 
-@container (max-width:900px) {
+/* @container (max-width:900px) {
     .hello-world {
         color: black;
     }
-}
+} */
