@@ -1,11 +1,9 @@
-
 function App() {
-
   return (
     <>
-     <p className="text-center p-5">Hello World !</p>
+      <p className="text-center p-5 hello-world">Hello World !</p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
