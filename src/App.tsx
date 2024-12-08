@@ -1,12 +1,13 @@
 function App() {
   return (
     <>
-      <textarea
-        className="resize-none absolute top-[50%] left-[50%]
-       translate-x-[-50%] translate-y-[-50%]
-       field-sizing-content outline-0 w-[200px] border-[1px]
-      border-slate-200 focus:border focus:border-slate-300 rounded p-3"
-      />
+      <button
+        className="p-3 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all cursor-pointer duration-[2000ms]
+         hover:bg-blue-500 hover:shadow-lg
+       bg-blue-400 rounded-md text-white font-bold shadow-sm inset-shadow-sm inset-shadow-white/15 inset-ring inset-ring-white/15 starting:opacity-0"
+      >
+        Click The Button !
+      </button>
     </>
   );
 }

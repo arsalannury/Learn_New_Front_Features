@@ -1,18 +1,1 @@
 @import "tailwindcss";
-
-@theme {
-  --red-primary: #e31919;
-  --red-secondary: #fa0707;
-  --red-light: #f04141;
-}
-
-
-.hello-world {
-    color: var(--red-primary);
-}
-
-/* @container (max-width:900px) {
-    .hello-world {
-        color: black;
-    }
-} */
