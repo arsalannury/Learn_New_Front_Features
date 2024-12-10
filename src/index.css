@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
-
 @theme {
-    --text-xxl: 30px;
+  --text-xxl: 30px;
 
-    --color-espresso: #612718;
-    --color-blue-sky: #05c4e6;
-    
-    
+  --color-espresso: #612718;
+  --color-blue-sky: #05c4e6;
+}
+
+.daghol {
+  @apply text-red-400
 }
