@@ -1,13 +1,15 @@
-import { create } from 'zustand';
-
-
+import { create, StateCreator } from "zustand";
 
 interface IRandom {
   randomText: string;
-  setRandomText: (text:string) => void;
+  setRandomText: (text: string) => void;
 }
 
-export const useRandomText = create<IRandom>((set) => ({
+const randomCreator: StateCreator<IRandom> = (set) => ({
   randomText: "",
-  setRandomText: (text:string) => set(() => ({randomText: text}))
-}))
+  setRandomText: (text: string) => set(() => ({ randomText: text })),
+});
+
+export const useRandomText = create<IRandom>((...a) => ({
+  ...randomCreator(...a),
+}));
