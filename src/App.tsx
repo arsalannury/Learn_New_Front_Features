@@ -1,7 +1,7 @@
-import { useCounter } from "./store/counter";
+
 
 function App() {
-  const { current, decrement, increment } = useCounter();
+
   return (
     <>
       <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex items-center flex-col justify-around">
