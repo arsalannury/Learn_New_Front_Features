@@ -10,6 +10,11 @@ interface IItem {
 function App() {
   const [todos, setTodos] = useState([]);
   const [isPending, startTransition] = useTransition();
+  const [optimisticUsersList, setOptimisticUsersList] = useOptimistic(
+    todos,
+    (states: IItem[], stateClicked: IItem) =>
+      states.filter((st) => st.id !== stateClicked.id)
+  );
 
   useEffect(() => {
     const getUsers = async () => {
@@ -27,11 +32,10 @@ function App() {
     getUsers();
   }, []);
 
-  const [optimisticUsersList, setOptimisticUsersList] = useOptimistic(todos);
-
   const handleClick = (item: IItem) => {
     startTransition(() => {
-      setOptimisticUsersList((prevTasks) =>
+      setOptimisticUsersList(item);
+      setTodos((prevTasks) =>
         prevTasks.filter((task: IItem) => task.id !== item.id)
       );
     });
@@ -42,13 +46,13 @@ function App() {
       <ul className="p-5">
         {optimisticUsersList &&
           optimisticUsersList.length > 0 &&
-          optimisticUsersList.map((item: IItem) => (
+          optimisticUsersList.map((item: IItem, index: number) => (
             <li
               key={item.id}
-              className="mt-5 cursor-pointer"
+              className="mt-5 cursor-pointer p-5 shadow-md select-none"
               onClick={() => handleClick(item)}
             >
-              {item.title}
+              {index + 1} - {item.title}
             </li>
           ))}
       </ul>
