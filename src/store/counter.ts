@@ -1,16 +1,15 @@
-import { create } from "zustand";
-import { devtools } from "zustand/middleware";
+import { create, StateCreator } from "zustand";
 
-interface ICounter {
-  current: number;
-  increment: () => void;
-  decrement: () => void;
+interface IRandom {
+  randomText: string;
+  setRandomText: (text: string) => void;
 }
 
-export const useCounter = create(
-  devtools<ICounter>((set) => ({
-    current: 0,
-    decrement: () => set((state) => ({ current: (state.current -= 1) })),
-    increment: () => set((state) => ({ current: (state.current += 1) })),
-  }))
-);
+const randomCreator: StateCreator<IRandom> = (set) => ({
+  randomText: "",
+  setRandomText: (text: string) => set(() => ({ randomText: text })),
+});
+
+export const useRandomText = create<IRandom>((...a) => ({
+  ...randomCreator(...a),
+}));
